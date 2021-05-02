@@ -59,17 +59,17 @@ class Editor:
 
                     print("x:{} y:{}".format(x, y))
 
-                    if x == 13 and y == 0:
+                    if x == 13 and y == 0 or x == 14 and y == 0:
                         self.cursor = 0
-                    elif x == 13 and y == 2:
+                    elif x == 13 and y == 2 or x == 14 and y == 2:
                         self.cursor = 1
-                    elif x == 13 and y == 3:
+                    elif x == 13 and y == 3 or x == 14 and y == 3:
                         self.cursor = 2
-                    elif x == 13 and y == 4:
+                    elif x == 13 and y == 4 or x == 14 and y == 4:
                         self.cursor = 3
-                    elif x == 13 and y == 5:
+                    elif x == 13 and y == 5 or x == 14 and y == 5:
                         self.cursor = 4
-                    elif x == 13 and y == 8:
+                    elif x == 13 and y == 8 or x == 14 and y == 8:
                         if self.player == 1:
                             if self.crates == self.points:
                                 name = input("Nom du fichier : ")

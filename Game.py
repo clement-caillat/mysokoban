@@ -110,6 +110,10 @@ class Game:
                         if self.board[new_player_y - 1][crate_pos[1]] == 3:
                             pygame.mixer.Sound.play(self.win)
                             self.ranged_crate += 1
+                            self.board[new_player_y - 1][crate_pos[1]] = 2
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
                         else:
                             self.board[new_player_y - 1][crate_pos[1]] = 2
                             self.board[current_player_y][current_player_x] = 0
@@ -122,38 +126,56 @@ class Game:
                 elif crate_pos[0] > current_player_y:
                     if self.board[new_player_y + 1][crate_pos[1]] != 1:
                         if self.board[new_player_y + 1][crate_pos[1]] == 3:
+                            pygame.mixer.Sound.play(self.win)
                             self.ranged_crate += 1
-                        self.board[new_player_y + 1][crate_pos[1]] = 2
-                        self.board[current_player_y][current_player_x] = 0
-                        self.board[new_player_y][new_player_x] = 4
-                        self.player.pos = (new_player_y, new_player_x)
-                        pygame.mixer.Sound.play(self.move_crate)
+                            self.board[new_player_y + 1][crate_pos[1]] = 2
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
+                        else:
+                            self.board[new_player_y + 1][crate_pos[1]] = 2
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
+                            pygame.mixer.Sound.play(self.move_crate)
                     else:
                         pygame.mixer.Sound.play(self.grunt)
                 # Move left
                 elif crate_pos[1] < current_player_x:
                     if self.board[crate_pos[0]][new_player_x - 1] != 1:
                         if self.board[crate_pos[0]][new_player_x - 1] == 3:
+                            pygame.mixer.Sound.play(self.win)
                             self.ranged_crate += 1
-                        self.board[crate_pos[0]][new_player_x - 1] = 2
+                            self.board[crate_pos[0]][new_player_x - 1] = 2
 
-                        self.board[current_player_y][current_player_x] = 0
-                        self.board[new_player_y][new_player_x] = 4
-                        self.player.pos = (new_player_y, new_player_x)
-                        pygame.mixer.Sound.play(self.move_crate)
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
+                        else:
+                            self.board[crate_pos[0]][new_player_x - 1] = 2
+
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
+                            pygame.mixer.Sound.play(self.move_crate)
                     else:
                         pygame.mixer.Sound.play(self.grunt)
                 # Move Right
                 elif crate_pos[1] > current_player_x:
                     if self.board[crate_pos[0]][new_player_x + 1] != 1:
                         if self.board[crate_pos[0]][new_player_x + 1] == 3:
+                            pygame.mixer.Sound.play(self.win)
                             self.ranged_crate += 1
-                        self.board[crate_pos[0]][new_player_x + 1] = 2
-
-                        self.board[current_player_y][current_player_x] = 0
-                        self.board[new_player_y][new_player_x] = 4
-                        self.player.pos = (new_player_y, new_player_x)
-                        pygame.mixer.Sound.play(self.move_crate)
+                            self.board[crate_pos[0]][new_player_x + 1] = 2
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
+                        else:
+                            self.board[crate_pos[0]][new_player_x + 1] = 2
+                            self.board[current_player_y][current_player_x] = 0
+                            self.board[new_player_y][new_player_x] = 4
+                            self.player.pos = (new_player_y, new_player_x)
+                            pygame.mixer.Sound.play(self.move_crate)
                     else:
                         pygame.mixer.Sound.play(self.grunt)
             else:
